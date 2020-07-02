@@ -1,0 +1,18 @@
+<button id="test" bindtap="init" wx:if="{{ !is_init }}">初始化蓝牙</button>
+<button id="test" bindtap="search" wx:if="{{ is_init && !is_connect }}">搜索设备</button>
+<view class="container" wx:if="{{ is_init && !is_connect }}">
+  <button wx:for-item="device" wx:key="key" wx:for="{{ devices }}" bindtap="connect" data-device="{{ device }}">
+    {{ device.name }}
+  </button>
+</view>
+<view class="rope" wx:if="{{ is_init && is_connect }}">
+  <button bindtap="bleRequestStart">跳绳开始</button>
+  <button bindtap="bleReadyCount">跳绳准备</button>
+  <button bindtap="bleRequestCount">获取数据</button>
+  <button bindtap="bleRequestCountEnd">结束</button>
+  <button bindtap="bleRequestEffect">震动</button>
+  <button bindtap="disconnect">断开连接</button>
+</view>
+<view wx:if="{{ version !== '' }}">当前版本: {{ version }}</view>
+<view wx:if="{{ ready }}">跳绳次数: {{ count }}</view>
+<view wx:if="{{ ready }}">跳绳时间: {{ time }}</view>

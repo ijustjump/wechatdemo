@@ -1,0 +1,12 @@
+{
+  "pages": [
+    "pages/index/index"
+  ],
+  "plugins": {
+    "loopsdk": {
+      "version": "1.0.2",
+      "provider": "wx6657beb915b4698b"
+    }
+  },
+  "sitemapLocation": "sitemap.json"
+}
