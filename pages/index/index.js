@@ -35,6 +35,7 @@ Page({
 		this.loopSdk.on('disconnect', state => {
 			clearInterval(this.data.timer);
 			this.setData({ devices: [], is_connect: false, version: '', ready: false, count: 0 });
+			this.search();
 			wx.showModal({ content: '蓝牙已断开', showCancel: false });
 		});
 
@@ -109,6 +110,7 @@ Page({
 		if (this.data.is_start === true) {
 			return wx.showToast({ title: '请先结束运动', icon: 'none' });
 		}
+
 		wx.showModal({
 			title: '提示',
 			content: `设备:${this.data.device.name}`,
