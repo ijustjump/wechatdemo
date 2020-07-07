@@ -4,7 +4,7 @@
   ],
   "plugins": {
     "loopsdk": {
-      "version": "1.0.6",
+      "version": "1.0.5",
       "provider": "wx6657beb915b4698b"
     }
   },

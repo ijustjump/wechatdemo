@@ -11,7 +11,6 @@ Page({
 		is_start: false,
 		ready: false,
 		count: 0,
-
 		timer: null,
 		time: ''
 	},
@@ -20,6 +19,8 @@ Page({
 
 		// 搜索到新设备
 		this.loopSdk.on('found', devices => {
+			console.log("devices", devices);
+			this.loopSdk.stopSearch();
 			this.setData({ devices });
 		});
 
@@ -89,9 +90,6 @@ Page({
 			const device = event.currentTarget.dataset.device;
 
 			await this.loopSdk.connect(device);
-
-			await this.loopSdk.stopSearch();
-
 			this.setData({ is_connect: true, device });
 
 			wx.showToast({ title: '连接成功' });
